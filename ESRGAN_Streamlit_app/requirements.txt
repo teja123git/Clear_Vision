@@ -1,6 +1,6 @@
 streamlit==1.39.0
-torch==2.7.1+cpu
-torchvision==0.15.2+cpu
+torch==2.7.1
+torchvision==0.22.1
 Pillow==10.4.0
 numpy==1.26.4
 opencv-python==4.10.0
