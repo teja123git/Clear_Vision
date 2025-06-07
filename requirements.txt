@@ -1,6 +1,7 @@
 streamlit==1.39.0
-torch==2.0.1
-torchvision==0.15.2
-Pillow==10.4.0
-torchmetrics==1.4.1  # For PSNR/SSIM in deploy.py
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
+Pillow==7.1.2
 numpy==1.26.4
+opencv-python==4.10.0
+scikit-image==0.24.0
