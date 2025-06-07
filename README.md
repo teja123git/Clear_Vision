@@ -6,6 +6,8 @@ ClearVision is a deep learning project dedicated to restoring degraded images us
 
 A Streamlit-based web tool allows users to upload 256×256 RGB images and view restored outputs instantly. The app is deployed at [ClearVision Streamlit App](https://clearvision2.streamlit.app/).
 
+You can view a demo video [here](https://drive.google.com/file/d/1zQLSS2aV6gn9Oxebdq0FiGp5XC8PDap4/view?usp=sharing).
+
 ## Dataset
 
 We used the [CelebA Dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), a collection of over 200,000 celebrity face images, each annotated with 40 attributes and five facial landmarks. Its variety in expressions, textures, and lighting makes it perfect for training ESRGAN to handle real-world challenges. Images were resized to 256×256 for computational efficiency.
