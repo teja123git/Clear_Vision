@@ -45,6 +45,58 @@ ESRGAN, implemented in model.py, is an improved version of SRGAN designed to pro
    * **Pixel Loss (weight = 0.005)**: A basic MSE loss between generated and ground truth pixels. While not always sufficient alone, it helps stabilize early training.
 
 
+## Training
+
+We trained ESRGAN for 25 epochs on CelebA with our degradation pipeline. Settings:
+
+* **Optimizers**: Adam, generator $\text{lr} = 2 \times 10^{-4}$, discriminator $\text{lr} = 1 \times 10^{-4}$.
+* **Loss Weights**: Perceptual = 1, Adversarial = 0.05, Pixel = 0.005.
+
+### Results
+
+Below are examples from the 10th and 25th epochs, showing the improvement in detail restoration.
+
+**10 Epochs**:
+
+PSNR=19.7 dB, SSIM=0.52
+
+
+
+![10 Epochs](https://github.com/teja123git/Clear_Vison/blob/main/10_epochs.jpg)
+
+
+**25 Epochs**:
+
+ PSNR=24.3 dB, SSIM=0.72
+ 
+![25 Epochs](https://github.com/teja123git/Clear_Vison/blob/main/25_epochs.jpg)
+
+* **Test Average**:
+
+  * PSNR: 23.4 dB
+  * SSIM: 0.67
+
+Hardware constraints limited training to 25 epochs, but performance improved steadily.
+
+### Challenges:
+
+* Discriminator dominance required noise injection for training stability.
+* Optimal learning rates and loss weights demanded extensive trials.
+* Realistic degradation pipeline was computationally intensive.
+* GPU limitations capped training duration.
+* PSNR/SSIM didn’t fully reflect visual quality, relying on perceptual loss.
+
+
+### Quantitative Results:
+
+* **PSNR**: 23.4 dB (test average).
+* **SSIM**: 0.67, indicating strong structural similarity.
+
+### Qualitative Results:
+
+Restored images show sharper details compared to degraded inputs.
+
+
 ## Repository Structure
 
 | **File/Folder**               | **Description**                                    |
@@ -89,46 +141,6 @@ streamlit run app.py
    pip install -r ESRGAN_Streamlit_app/requirements.txt
    ```
 
-## Training
-
-We trained ESRGAN for 25 epochs on CelebA with our degradation pipeline. Settings:
-
-* **Optimizers**: Adam, generator $\text{lr} = 2 \times 10^{-4}$, discriminator $\text{lr} = 1 \times 10^{-4}$.
-* **Loss Weights**: Perceptual = 1, Adversarial = 0.05, Pixel = 0.005.
-
-### Results
-
-Below are examples from the 10th and 25th epochs, showing the improvement in detail restoration.
-
-**10 Epochs**:
-
-PSNR=19.7 dB, SSIM=0.52
-
-
-
-![10 Epochs](https://github.com/teja123git/Clear_Vison/blob/main/10_epochs.jpg)
-
-
-**25 Epochs**:
-
- PSNR=24.3 dB, SSIM=0.72
- 
-![25 Epochs](https://github.com/teja123git/Clear_Vison/blob/main/25_epochs.jpg)
-
-* **Test Average**:
-
-  * PSNR: 23.4 dB
-  * SSIM: 0.67
-
-Hardware constraints limited training to 25 epochs, but performance improved steadily.
-
-### Challenges:
-
-* Discriminator dominance required noise injection for training stability.
-* Optimal learning rates and loss weights demanded extensive trials.
-* Realistic degradation pipeline was computationally intensive.
-* GPU limitations capped training duration.
-* PSNR/SSIM didn’t fully reflect visual quality, relying on perceptual loss.
 
 To train from scratch:
 
@@ -144,14 +156,6 @@ Run evaluation:
 python Evaluation.py
 ```
 
-### Quantitative Results:
-
-* **PSNR**: 23.4 dB (test average).
-* **SSIM**: 0.67, indicating strong structural similarity.
-
-### Qualitative Results:
-
-Restored images show sharper details compared to degraded inputs.
 
 ## Future Work
 
