@@ -44,7 +44,6 @@ ESRGAN, implemented in model.py, is an improved version of SRGAN designed to pro
    * **Adversarial Loss (weight = 0.05)**: Encourages the generator to produce images that fool the discriminator by making them look more photo-realistic.
    * **Pixel Loss (weight = 0.005)**: A basic MSE loss between generated and ground truth pixels. While not always sufficient alone, it helps stabilize early training.
 
-
 ## Training
 
 We trained ESRGAN for 25 epochs on CelebA with our degradation pipeline. Settings:
